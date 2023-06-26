@@ -10,7 +10,7 @@ spec:
           image: busybox:1.28
           command: ["sh", "-c"]
           args:
-            - cat -f /opt/smc/metadata.sql
+            - cat  /opt/smc/metadata.sql
           volumeMounts:
             - name: smc-metadata-sql
               mountPath: /opt/smc
