@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: smc-metadata
+spec:
+  template:
+    spec:
+      containers:
+        - name: smc-metadata
+          image: bbusybox:1.28
+          command: ["sh", "-c"]
+          args:
+            - cat -f /opt/smc/metadata.sql
+          volumeMounts:
+            - name: smc-metadata-sql
+              mountPath: /opt/smc
+      restartPolicy: Never
+      volumes:
+        - name: smc-metadata-sh
+          configMap:
+            name: smc-metadata-sql
+  backoffLimit: 3
