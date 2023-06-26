@@ -16,7 +16,7 @@ spec:
               mountPath: /opt/smc
       restartPolicy: Never
       volumes:
-        - name: smc-metadata-sh
+        - name: smc-metadata-sql
           configMap:
             name: smc-metadata-sql
   backoffLimit: 3
